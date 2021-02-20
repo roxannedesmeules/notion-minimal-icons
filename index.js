@@ -79,7 +79,7 @@ class Icons {
 			textArea.style.background = 'transparent';
 
 
-			textArea.value = $img.attr('src');
+			textArea.value = 'https://roxannedesmeules.github.io/notion-minimal-icons/' + $img.attr('src');
 
 			document.body.appendChild(textArea);
 			textArea.focus();
