@@ -86,6 +86,8 @@ class Icons {
 			textArea.select();
 
 			document.execCommand('copy');
+
+			this._showCopied($col);
 		});
 	}
 
@@ -285,6 +287,23 @@ class Icons {
 		$(`button`)
 			.addClass('is-inverted')
 			.removeClass('is-outlined');
+	}
+
+	_showCopied($target) {
+		const $text = $(`<a>`)
+						.attr({
+							class : `button is-small is-primary is-light`,
+							style : `display: none; margin-top: -1em;`
+						})
+						.text('Copied!');
+
+		$target.find(`.image`).append($text);
+
+		$text.fadeIn(400, () => {
+			setTimeout(() => {
+				$text.fadeOut(400, () => { $text.detach(); });
+			}, 1500);
+		});
 	}
 }
 
